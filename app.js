@@ -1,5 +1,4 @@
 // Import Express.js
-const VERIFY_TOKEN = "EAAS1yufpNIYBPoAZBz29dqcXSZB4tWDsZAVIYZC7TumIMOnkUdouvvqC4nsWAMA7i2P37Sz4wl1QAUGrYaZCbWJDAZCRGrQFCvgK8iatfVt9WK4sCQTAiOv8LiQKivpDhN29RxYQvdYN2ImKZBCSJ32alDwK1IRILOSQPlI3xoJMV7hgR7ipTZCk1HNaNPFCPAYfiZAjtrrwvWa63NX8V3EDx8hvhKPNuTS2RZA05tzFPWVqQwxgZDZD";
 const express = require('express');
 
 // Create an Express app
@@ -10,7 +9,7 @@ app.use(express.json());
 
 // Set port and verify_token
 const port = process.env.PORT || 3000;
-const verifyToken = VERIFY_TOKEN;
+const verifyToken = process.env.VERIFY_TOKEN;
 
 // Route for GET requests
 app.get('/', (req, res) => {
@@ -35,4 +34,5 @@ app.post('/', (req, res) => {
 // Start the server
 app.listen(port, () => {
   console.log(`\nListening on port ${port}\n`);
+  console.log(process.env.VERIFY_TOKEN);
 });
